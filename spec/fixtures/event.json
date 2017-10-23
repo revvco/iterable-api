@@ -1,0 +1,12 @@
+{
+  "email": "bob@example.org",
+  "eventName": "userSignup",
+  "createdAt": 123456789,
+  "dataFields": {
+    "firstName" : "Bob",
+    "lastName" : "Example"
+  },
+  "userId": "123",
+  "campaignId": 12,
+  "templateId": 42
+}

@@ -1,0 +1,7 @@
+{
+  "msg": "OK",
+  "code": "Success",
+  "params": {
+    "eventName" : "userSignup"
+  }
+}

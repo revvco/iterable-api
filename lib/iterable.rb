@@ -13,6 +13,7 @@ module Iterable
   # Models
   autoload :Base, 'iterable/models/base'
   autoload :User, 'iterable/models/user'
+  autoload :Event, 'iterable/models/event'
   autoload :DataFields, 'iterable/models/data_fields'
   autoload :ListDetails, 'iterable/models/list_details'
   autoload :CommerceItem, 'iterable/models/commerce_item'
@@ -36,11 +37,12 @@ module Iterable
     autoload :CommerceService, 'iterable/services/commerce_service'
     autoload :ListService, 'iterable/services/list_service'
     autoload :UserService, 'iterable/services/user_service'
-  end  
+    autoload :EventService, 'iterable/services/event_service'
+  end
 
   module Exceptions
     autoload :ServiceException, 'iterable/exceptions/service_exception'
-  end  
+  end
 
   module Util
     autoload :Config, 'iterable/util/config'

@@ -28,6 +28,9 @@ module Iterable
 
           # purchases (commerce)
           :track_purchase                 => 'commerce/trackPurchase',
+
+          # events
+          :track_event                    => 'events/track',
         },
 
         # Authorization related configuration options
@@ -44,7 +47,7 @@ module Iterable
       class << self
         attr_accessor :props
 
-        def configure 
+        def configure
           yield props if block_given?
         end
 

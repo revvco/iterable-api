@@ -16,9 +16,9 @@ module Iterable
       end
     end
 
-    # 
+    #
     # List Services
-    # 
+    #
     def lists
       Services::ListService.all
     end
@@ -31,9 +31,9 @@ module Iterable
       Services::ListService.find_by_id(list_id)
     end
 
-    # 
+    #
     # User Services
-    # 
+    #
     def user_by_email(email)
       Services::UserService.find_by_email(email)
     end
@@ -53,9 +53,16 @@ module Iterable
     def user_subscriptions_update
     end
 
-    # 
+    #
+    # Event Services
+    #
+    def track_event(event)
+      Services::EventService.track(event)
+    end
+
+    #
     # Commerce Services
-    # 
+    #
     def track_purchase(track_purchase_request)
       Services::CommerceService.track_purchase(track_purchase_request)
     end
