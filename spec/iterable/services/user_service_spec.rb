@@ -12,7 +12,7 @@ describe Iterable::Services::UserService do
 
       response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
-      user_response = Iterable::Services::UserService.find_by_email('bob@example.org')
+      user_response = Iterable::Services::UserService.new('api_key').find_by_email('bob@example.org')
 
       expect(user_response).to be_kind_of(Iterable::Responses::User)
       expect(user_response.user).to be_truthy
@@ -30,7 +30,7 @@ describe Iterable::Services::UserService do
 
       response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
-      user_response = Iterable::Services::UserService.find_by_id(1)
+      user_response = Iterable::Services::UserService.new('api_key').find_by_id(1)
 
       expect(user_response).to be_kind_of(Iterable::Responses::User)
       expect(user_response.user).to be_truthy
@@ -48,7 +48,7 @@ describe Iterable::Services::UserService do
       error.message = 'Bad Request'
       error.response = OpenStruct.new({body: "User does not exist with that ID!"})
       RestClient.stub(:get).and_raise(error)
-      expect { Iterable::Services::UserService.find_by_id(1) }.to raise_error(error)
+      expect { Iterable::Services::UserService.new('api_key').find_by_id(1) }.to raise_error(error)
     end
   end
 
@@ -59,8 +59,8 @@ describe Iterable::Services::UserService do
 
       response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
-      hashie_response = Iterable::Services::UserService.fields
-      
+      hashie_response = Iterable::Services::UserService.new('api_key').fields
+
       expect(hashie_response).to be_kind_of(Hashie::Mash)
       expect(hashie_response.fields).to be_truthy
       expect(hashie_response.fields['test']).to eq 'string'

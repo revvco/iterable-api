@@ -6,12 +6,14 @@
 
 module Iterable
   class Api
+    attr_accessor :api_key
+
     # Class constructor
     # @param [String] api_key - Iterable API Key
     # @return
     def initialize(api_key = nil)
-      Services::BaseService.api_key = api_key || Util::Config.get('auth.api_key')
-      if Services::BaseService.api_key.nil? || Services::BaseService.api_key == ''
+      @api_key = api_key || Util::Config.get('auth.api_key')
+      if @api_key.nil? || @api_key == ''
         raise ArgumentError.new(Util::Config.get('errors.api_key_missing'))
       end
     end
@@ -20,34 +22,34 @@ module Iterable
     # List Services
     #
     def lists
-      Services::ListService.all
+      Services::ListService.new(@api_key).all
     end
 
     def lists_subscribe(list_id, subscribers)
-      Services::ListService.subscribe(list_id, subscribers)
+      Services::ListService.new(@api_key).subscribe(list_id, subscribers)
     end
 
     def list_by_id(list_id)
-      Services::ListService.find_by_id(list_id)
+      Services::ListService.new(@api_key).find_by_id(list_id)
     end
 
     #
     # User Services
     #
     def user_by_email(email)
-      Services::UserService.find_by_email(email)
+      Services::UserService.new(@api_key).find_by_email(email)
     end
 
     def user_by_id(id)
-      Services::UserService.find_by_id(id)
+      Services::UserService.new(@api_key).find_by_id(id)
     end
 
     def user_update(user)
-      Services::UserService.update(user)
+      Services::UserService.new(@api_key).update(user)
     end
 
     def user_fields
-      Services::UserService.fields
+      Services::UserService.new(@api_key).fields
     end
 
     def user_subscriptions_update
@@ -57,14 +59,14 @@ module Iterable
     # Event Services
     #
     def track_event(event)
-      Services::EventService.track(event)
+      Services::EventService.new(@api_key).track(event)
     end
 
     #
     # Commerce Services
     #
     def track_purchase(track_purchase_request)
-      Services::CommerceService.track_purchase(track_purchase_request)
+      Services::CommerceService.new(@api_key).track_purchase(track_purchase_request)
     end
   end
 end

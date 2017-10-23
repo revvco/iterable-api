@@ -13,7 +13,7 @@ describe Iterable::Services::EventService do
 
       response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:post).and_return(response)
-      list_response = Iterable::Services::EventService.track(event)
+      list_response = Iterable::Services::EventService.new('api_key').track(event)
 
       expect(list_response).to be_kind_of(Iterable::Responses::General)
       expect(list_response.msg).to eq "OK"

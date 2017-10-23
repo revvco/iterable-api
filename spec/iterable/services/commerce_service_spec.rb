@@ -6,8 +6,8 @@ describe Iterable::Services::CommerceService do
   end
 
   describe "#track_purchase" do
-    it 'fails for incorrect request' do 
-      expect{ Iterable::Services::CommerceService.track_purchase({}) }.to raise_error(Iterable::Exceptions::ServiceException, "Must be a Iterable::Requests::TrackPurchase")
+    it 'fails for incorrect request' do
+      expect{ Iterable::Services::CommerceService.new('api_key').track_purchase({}) }.to raise_error(Iterable::Exceptions::ServiceException, "Must be a Iterable::Requests::TrackPurchase")
     end
     it "adds a purchase" do
       track_purchase_request = Iterable::Requests::TrackPurchase.new(JSON.parse(load_file('request_track_purchase.json')))
@@ -16,7 +16,7 @@ describe Iterable::Services::CommerceService do
 
       response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:post).and_return(response)
-      general_response = Iterable::Services::CommerceService.track_purchase(track_purchase_request)
+      general_response = Iterable::Services::CommerceService.new('api_key').track_purchase(track_purchase_request)
 
       expect(general_response).to be_kind_of(Iterable::Responses::General)
       expect(general_response.code).to eq 200
