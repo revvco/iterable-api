@@ -68,5 +68,12 @@ module Iterable
     def track_purchase(track_purchase_request)
       Services::CommerceService.new(@api_key).track_purchase(track_purchase_request)
     end
+
+    #
+    # Workflow Services
+    #
+    def trigger_workflow(workflow_trigger)
+      Services::WorkflowService.new(@api_key).trigger_workflow(workflow_trigger)
+    end
   end
 end

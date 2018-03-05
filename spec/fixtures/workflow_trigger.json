@@ -1,0 +1,9 @@
+{
+  "email": "bob@revv.co",
+  "dataFields": {
+    "firstName" : "Bob",
+    "lastName" : "Example"
+  },
+  "listId": "123",
+  "workflowId": "12"
+}
