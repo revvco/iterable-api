@@ -66,5 +66,12 @@ module Iterable
     def track_purchase(track_purchase_request)
       Services::CommerceService.track_purchase(track_purchase_request)
     end
+
+    #
+    # Email Services
+    #
+    def send_email(email_request)
+      Services::EmailService.send_email(email_request)
+    end
   end
 end

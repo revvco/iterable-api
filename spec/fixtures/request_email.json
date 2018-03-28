@@ -1,6 +1,9 @@
 {
-  "email": "bob@example.org",
-  "userId": "1",
-  "dataFields":{"key2":"value2"},
-  "mergeNestedObjects": false
+  "campaignId": "1"
+  "recipientEmail": "bob@example.org",
+  "dataFields": {
+    "firstName": "Joe",
+    "lastName": "Last",
+    "purchaseAmount": 42.42
+  }
 }
