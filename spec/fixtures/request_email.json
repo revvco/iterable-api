@@ -1,0 +1,9 @@
+{
+  "campaignId": "1"
+  "recipientEmail": "bob@example.org",
+  "dataFields": {
+    "firstName": "Joe",
+    "lastName": "Last",
+    "purchaseAmount": 42.42
+  }
+}

@@ -27,12 +27,14 @@ module Iterable
   end
 
   module Requests
+    autoload :Email, 'iterable/models/requests/email'
     autoload :Subscribe, 'iterable/models/requests/subscribe'
     autoload :TrackPurchase, 'iterable/models/requests/track_purchase'
     autoload :UserUpdate, 'iterable/models/requests/user_update'
   end
 
   module Services
+    autoload :EmailService, 'iterable/services/email_service'
     autoload :BaseService, 'iterable/services/base_service'
     autoload :CommerceService, 'iterable/services/commerce_service'
     autoload :ListService, 'iterable/services/list_service'
