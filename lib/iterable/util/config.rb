@@ -31,6 +31,9 @@ module Iterable
 
           # events
           :track_event                    => 'events/track',
+
+          #email
+          :send_email                     => 'email/target'
         },
 
         # Authorization related configuration options

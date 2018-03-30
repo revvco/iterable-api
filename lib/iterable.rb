@@ -38,6 +38,7 @@ module Iterable
     autoload :ListService, 'iterable/services/list_service'
     autoload :UserService, 'iterable/services/user_service'
     autoload :EventService, 'iterable/services/event_service'
+    autoload :EmailService, 'iterable/services/email_service'
   end
 
   module Exceptions
