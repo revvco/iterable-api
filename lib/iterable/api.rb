@@ -66,5 +66,9 @@ module Iterable
     def track_purchase(track_purchase_request)
       Services::CommerceService.track_purchase(track_purchase_request)
     end
+
+    def update_cart(update_cart_request)
+      Services::CommerceService.update_cart(update_cart_request)
+    end
   end
 end

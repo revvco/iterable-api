@@ -28,6 +28,7 @@ module Iterable
 
           # purchases (commerce)
           :track_purchase                 => 'commerce/trackPurchase',
+          :update_cart                    => 'commerce/updateCart',
 
           # events
           :track_event                    => 'events/track',
