@@ -12,7 +12,7 @@ describe Iterable::Services::ListService do
 
       response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
-      list_response = Iterable::Services::ListService.all
+      list_response = Iterable::Services::ListService.new('api_key').all
 
       expect(list_response).to be_kind_of(Iterable::Responses::Lists)
       expect(list_response.lists).not_to be_empty
@@ -26,7 +26,7 @@ describe Iterable::Services::ListService do
 
       response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
-      list_response = Iterable::Services::ListService.find_by_id(1)
+      list_response = Iterable::Services::ListService.new('api_key').find_by_id(1)
 
       expect(list_response).to be_kind_of(Iterable::ListDetails)
       expect(list_response).not_to be_nil
@@ -38,7 +38,7 @@ describe Iterable::Services::ListService do
 
       response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
-      list_response = Iterable::Services::ListService.find_by_id(19827)
+      list_response = Iterable::Services::ListService.new('api_key').find_by_id(19827)
 
       expect(list_response).to be_nil
     end
@@ -52,8 +52,8 @@ describe Iterable::Services::ListService do
 
       response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:post).and_return(response)
-      list_response = Iterable::Services::ListService.subscribe(1, subscribers)
-      
+      list_response = Iterable::Services::ListService.new('api_key').subscribe(1, subscribers)
+
       expect(list_response).to be_kind_of(Iterable::Responses::Subscribe)
       expect(list_response.successCount).to eq 1
       expect(list_response.failCount).to eq 1

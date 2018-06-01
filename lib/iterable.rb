@@ -17,6 +17,7 @@ module Iterable
   autoload :DataFields, 'iterable/models/data_fields'
   autoload :ListDetails, 'iterable/models/list_details'
   autoload :CommerceItem, 'iterable/models/commerce_item'
+  autoload :WorkflowTrigger, 'iterable/models/workflow_trigger'
 
   module Responses
     autoload :Error, 'iterable/models/responses/error'
@@ -39,6 +40,7 @@ module Iterable
     autoload :ListService, 'iterable/services/list_service'
     autoload :UserService, 'iterable/services/user_service'
     autoload :EventService, 'iterable/services/event_service'
+    autoload :WorkflowService, 'iterable/services/workflow_service'
   end
 
   module Exceptions

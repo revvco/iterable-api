@@ -32,6 +32,9 @@ module Iterable
 
           # events
           :track_event                    => 'events/track',
+
+          # events
+          :trigger_workflow               => 'workflows/triggerWorkflow',
         },
 
         # Authorization related configuration options

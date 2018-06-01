@@ -7,12 +7,10 @@
 module Iterable
   module Services
     class EventService < BaseService
-      class << self
         def track(event)
           raise Exceptions::ServiceException, "Must be a Iterable::Event" unless event.is_a?(Iterable::Event)
           post(Util::Config.get('endpoints.track_event'), event)
         end
-      end
     end
   end
 end
