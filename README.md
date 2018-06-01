@@ -44,11 +44,12 @@ All responses are sent back as `Hashie` objects
 
 * `users/{email}` - find a user by email
 * `users/{id}` - find a user by id
-* `users/update` - update a user
+* `users/update` - create/update a user
 
 #### Commerce
 
-* `commerce/track_purchase` - create a new CommerceItem
+* `commerce/trackPurchase` - Track a purchase. 'shoppingCartItems' field on the user profile is cleared. User profile is also updated (created otherwise) using the user request field
+* `commerce/updateCart` - Updates the 'shoppingCartItems' field on the user profile with shopping cart items. User profile is updated (created otherwise) via the user field.
 
 ## Development
 
@@ -59,7 +60,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/iterable-api.
-
 
 ## License
 

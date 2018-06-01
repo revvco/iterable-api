@@ -29,6 +29,7 @@ module Iterable
   module Requests
     autoload :Subscribe, 'iterable/models/requests/subscribe'
     autoload :TrackPurchase, 'iterable/models/requests/track_purchase'
+    autoload :UpdateCart, 'iterable/models/requests/update_cart'
     autoload :UserUpdate, 'iterable/models/requests/user_update'
   end
 
