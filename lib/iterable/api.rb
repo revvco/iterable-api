@@ -77,7 +77,7 @@ module Iterable
     end
 
     def update_cart(update_cart_request)
-      Services::CommerceService.update_cart(update_cart_request)
+      Services::CommerceService.new(@api_key).update_cart(update_cart_request)
     end
   end
 end
